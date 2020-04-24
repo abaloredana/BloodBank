@@ -1,4 +1,4 @@
-package UI;
+package GRAPHICS;
 
 public class JavaFX {
 	

@@ -1,6 +1,7 @@
 package USER;
 
 public class BloodBank {
+	
 	public int id;
 	public String email;
 	public String address;
