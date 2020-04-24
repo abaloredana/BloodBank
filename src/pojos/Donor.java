@@ -18,6 +18,10 @@ public class Donor {
 	public LocalDateTime dob;
 	
 	
+	
+	public Donor() {
+		super();
+	}
 	public int getId() {
 		return id;
 	}

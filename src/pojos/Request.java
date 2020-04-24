@@ -10,6 +10,12 @@ public class Request {
 	public boolean revised;
 	public int durability;
 	public int relevance;
+	
+	
+	
+	public Request() {
+		super();
+	}
 	public int getId() {
 		return id;
 	}
