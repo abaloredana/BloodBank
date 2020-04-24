@@ -10,6 +10,11 @@ public class Hospital {
 	public String zip;
 	
 	
+	
+	public Hospital() {
+		super();
+	}
+
 	public int getId() {
 		return id;
 	}

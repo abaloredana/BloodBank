@@ -13,6 +13,11 @@ public class BloodSample {
 	public int haemoglobin;
 	public LocalDateTime dod;
 	
+	
+	
+	public BloodSample() {
+		super();
+	}
 	public int getId() {
 		return id;
 	}

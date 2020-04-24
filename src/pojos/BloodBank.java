@@ -9,6 +9,12 @@ public class BloodBank {
 		public String city;
 		public String zip;
 		
+		
+		
+		public BloodBank() {
+			super();
+		}
+
 		public int getId() {
 			return id;
 		}
@@ -63,7 +69,11 @@ public class BloodBank {
 		
 		public void setZip(String zip) {
 			this.zip = zip;
+
 		}
+		
+		
+		
 }
 
 

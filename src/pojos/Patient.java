@@ -21,6 +21,11 @@ public class Patient {
 	public boolean bRequirement;
 	
 	
+	
+	
+	public Patient() {
+		super();
+	}
 	public int getId() {
 		return id;
 	}
