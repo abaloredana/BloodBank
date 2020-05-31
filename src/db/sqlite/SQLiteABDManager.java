@@ -26,6 +26,7 @@ public class SQLiteABDManager implements ADBManager {
 
 	@Override
 	public void connect() {
+		
 		try {
 			Class.forName("org.sqlite.JDBC");
 
