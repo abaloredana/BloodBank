@@ -8,66 +8,92 @@ public class Hospital {
 	public String name;
 	public String city;
 	public String zip;
+
+	public Hospital(int id, String email, String address, String phone, String name, String city, String zip) {
+
+	this.id = id;
+	this.email = email;
+	this.address = address;
+	this.phone = phone;
+	this.name = name;
+	this.city = city;
+	this.zip = zip;
+	}
 	
-	
-	
+	public Hospital(String email, String address, String phone, String name, String city, String zip) {
+	this.email = email;
+	this.address = address;
+	this.phone = phone;
+	this.name = name;
+	this.city = city;
+	this.zip = zip;
+	}
+
 	public Hospital() {
-		super();
+	super();
 	}
 
 	public int getId() {
-		return id;
+	return id;
 	}
-	
+
 	public void setId(int id) {
-		this.id = id;
+	this.id = id;
 	}
-	
+
 	public String getEmail() {
-		return email;
+	return email;
 	}
-	
+
 	public void setEmail(String email) {
-		this.email = email;
+	this.email = email;
 	}
-	
+
 	public String getAddress() {
-		return address;
+	return address;
 	}
-	
+
 	public void setAddress(String address) {
-		this.address = address;
+	this.address = address;
 	}
-	
+
 	public String getPhone() {
-		return phone;
+	return phone;
 	}
-	
+
 	public void setPhone(String phone) {
-		this.phone = phone;
+	this.phone = phone;
 	}
-	
+
 	public String getName() {
-		return name;
+	return name;
 	}
-	
+
 	public void setName(String name) {
-		this.name = name;
+	this.name = name;
 	}
-	
+
 	public String getCity() {
-		return city;
+	return city;
 	}
-	
+
 	public void setCity(String city) {
-		this.city = city;
+	this.city = city;
 	}
-	
+
 	public String getZip() {
-		return zip;
+	return zip;
+	}
+
+	public void setZip(String zip) {
+	this.zip = zip;
+	}
+
+	@Override
+	public String toString() {
+		return "Hospital [id=" + id + ", email=" + email + ", address=" + address + ", phone=" + phone + ", name="
+				+ name + ", city=" + city + ", zip=" + zip + "]";
 	}
 	
-	public void setZip(String zip) {
-		this.zip = zip;
-	}
+	
 }

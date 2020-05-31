@@ -1,45 +1,57 @@
 package pojos;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 
 public class Request {
 	public int id;
-	public static int volume;
-	public LocalDateTime dor;
-	public boolean revised;
+	public int volume;
+	public Date dor;
 	public int durability;
 	public int relevance;
-	
-	
 	
 	public Request() {
 		super();
 	}
+	
+	public Request(int volume, Date dor, int durability, int relevance) {
+		super();
+		this.volume = volume;
+		this.dor = dor;
+		this.durability = durability;
+		this.relevance = relevance;
+	}
+
+
+	public Request(int id, int volume, Date dor, int durability, int relevance) {
+		super();
+		this.id = id;
+		this.volume = volume;
+		this.dor = dor;
+		this.durability = durability;
+		this.relevance = relevance;
+	}
+
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public static int getVolume() {
+	public int getVolume() {
 		return volume;
 	}
-	public static void setVolume(int volume) {
-		Request.volume = volume;
+	public void setVolume(int volume) {
+		this.volume = volume;
 	}
-	public LocalDateTime getDor() {
+
+	public Date getDor() {
 		return dor;
 	}
-	public void setDor(LocalDateTime dor) {
+	public void setDor(Date dor) {
 		this.dor = dor;
 	}
-	public boolean isRevised() {
-		return revised;
-	}
-	public void setRevised(boolean revised) {
-		this.revised = revised;
-	}
+
 	public int getDurability() {
 		return durability;
 	}
@@ -52,48 +64,14 @@ public class Request {
 	public void setRelevance(int relevance) {
 		this.relevance = relevance;
 	}
+
+	@Override
+	public String toString() {
+		return "Request [id=" + id + ", volume=" + volume + ", dor=" + dor + ", durability=" + durability
+				+ ", relevance=" + relevance + "]";
+	}
 	
 	
 
 }
-// solo special es diferente porque el standard y el emergency son requests normales que solo varian en el relevance
-// editar queries por la relacion request-patient
- class specialRequest extends Request {
-	 
-	public int plasma;
-	public int platelets;
-	public int hdl;
-	public int haemoglobin;
-	public int hematocrit;
-	public int getPlasma() {
-		return plasma;
-	}
-	public void setPlasma(int plasma) {
-		this.plasma = plasma;
-	}
-	public int getPlatelets() {
-		return platelets;
-	}
-	public void setPlatelets(int platelets) {
-		this.platelets = platelets;
-	}
-	public int getHdl() {
-		return hdl;
-	}
-	public void setHdl(int hdl) {
-		this.hdl = hdl;
-	}
-	public int getHaemoglobin() {
-		return haemoglobin;
-	}
-	public void setHaemoglobin(int haemoglobin) {
-		this.haemoglobin = haemoglobin;
-	}
-	public int getHematocrit() {
-		return hematocrit;
-	}
-	public void setHematocrit(int hematocrit) {
-		this.hematocrit = hematocrit;
-	}
-	
-}
+

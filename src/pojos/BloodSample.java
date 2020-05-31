@@ -1,23 +1,35 @@
 package pojos;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 
 public class BloodSample {
-	public int id;
-	public int hematocrit;
+	public int id;	
 	public static int volume = 450;
+	public int hematocrit;
 	public int plasma;
 	public int platelets;
 	public int hdl;
-	public int haemoglobin;
-	public LocalDateTime dod;
+	public int hemoglobin;
+	public Date dod;
 	
 	
 	
 	public BloodSample() {
 		super();
 	}
+	
+	public BloodSample(int id, int hematocrit, int plasma, int platelets, int hdl, int hemoglobin, Date dod) {
+		super();
+		this.id = id;
+		this.hematocrit = hematocrit;
+		this.plasma = plasma;
+		this.platelets = platelets;
+		this.hdl = hdl;
+		this.hemoglobin = hemoglobin;
+		this.dod = dod;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -54,18 +66,25 @@ public class BloodSample {
 	public void setHdl(int hdl) {
 		this.hdl = hdl;
 	}
-	public int getHaemoglobin() {
-		return haemoglobin;
+	public int getHemoglobin() {
+		return hemoglobin;
 	}
 	public void setHaemoglobin(int haemoglobin) {
-		this.haemoglobin = haemoglobin;
+		this.hemoglobin = haemoglobin;
 	}
-	public LocalDateTime getDod() {
+	public Date getDod() {
 		return dod;
 	}
-	public void setDod(LocalDateTime dod) {
+	public void setDod(Date dod) {
 		this.dod = dod;
+	}
+
+	@Override
+	public String toString() {
+		return "BloodSample [id=" + id + ", hematocrit=" + hematocrit + ", plasma=" + plasma + ", platelets="
+				+ platelets + ", hdl=" + hdl + ", hemoglobin=" + hemoglobin + ", dod=" + dod + "]";
 	}  
+	
 	
 	
 }

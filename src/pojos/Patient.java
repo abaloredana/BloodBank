@@ -1,5 +1,8 @@
 package pojos;
 
+
+import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Patient {
@@ -9,20 +12,48 @@ public class Patient {
 	public String email;
 	public String phone;
 	public String address;
-	public String city;
-	public String zip;
 	public float weight;
-	public String gender;
 	public String abo;
 	public String rh;
-	public LocalDateTime dob;
+	public String gender;
+	public Date dob;
 	public String doctor;
-	public boolean deceased;
-	public boolean bRequirement;
 	
 	
 	
+	public Patient(String name, String surname, String email, String phone, String address, float weight, String abo,
+			String rh, String gender, Date dob, String doctor) {
+		super();
+		this.name = name;
+		this.surname = surname;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+		this.weight = weight;
+		this.abo = abo;
+		this.rh = rh;
+		this.gender = gender;
+		this.dob = dob;
+		this.doctor = doctor;
+	}
 	
+	public Patient(int id, String name, String surname, String email, String phone, String address, float weight,
+			String abo, String rh, String gender, Date dob, String doctor) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+		this.weight = weight;
+		this.abo = abo;
+		this.rh = rh;
+		this.gender = gender;
+		this.dob = dob;
+		this.doctor = doctor;
+	}
+
 	public Patient() {
 		super();
 	}
@@ -62,18 +93,6 @@ public class Patient {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getZip() {
-		return zip;
-	}
-	public void setZip(String zip) {
-		this.zip = zip;
-	}
 	public float getWeight() {
 		return weight;
 	}
@@ -98,10 +117,10 @@ public class Patient {
 	public void setRh(String rh) {
 		this.rh = rh;
 	}
-	public LocalDateTime getDob() {
+	public Date getDob() {
 		return dob;
 	}
-	public void setDob(LocalDateTime dob) {
+	public void setDob(Date dob) {
 		this.dob = dob;
 	}
 	public String getDoctor() {
@@ -110,18 +129,14 @@ public class Patient {
 	public void setDoctor(String doctor) {
 		this.doctor = doctor;
 	}
-	public boolean isDeceased() {
-		return deceased;
+
+	@Override
+	public String toString() {
+		return "Patient [id=" + id + ", name=" + name + ", surname=" + surname + ", email=" + email + ", phone=" + phone
+				+ ", address=" + address + ", weight=" + weight + ", abo=" + abo + ", rh=" + rh + ", gender=" + gender
+				+ ", dob=" + dob + ", doctor=" + doctor + "]";
 	}
-	public void setDeceased(boolean deceased) {
-		this.deceased = deceased;
-	}
-	public boolean isbRequirement() {
-		return bRequirement;
-	}
-	public void setbRequirement(boolean bRequirement) {
-		this.bRequirement = bRequirement;
-	}
+	
 	
 
 }

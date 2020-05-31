@@ -1,5 +1,6 @@
 package pojos;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 public class Donor {
@@ -9,16 +10,44 @@ public class Donor {
 	public String email;
 	public String phone;
 	public String address;
-	public String city;
-	public String zip;
 	public float weight;
 	public String gender;
 	public String abo;
 	public String rh;
-	public LocalDateTime dob;
+	public Date dob;
+	public String city;
+	public String zip;
+
+
+	public Donor(int id, String name, String surname,Date dob, String gender, float weight, String abo,String rh,String email, String phone, String city, String zip,String address) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+		this.weight = weight;
+		this.gender = gender;
+		this.abo = abo;
+		this.rh = rh;
+		this.dob = dob;
+		this.city = city;
+		this.zip = zip;
+	}
 	
-	
-	
+	public String getCity() {
+		return city;
+	}
+	public String getZip() {
+		return zip;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public void setZip(String zip) {
+		this.zip = zip;
+	}
 	public Donor() {
 		super();
 	}
@@ -58,18 +87,6 @@ public class Donor {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getZip() {
-		return zip;
-	}
-	public void setZip(String zip) {
-		this.zip = zip;
-	}
 	public float getWeight() {
 		return weight;
 	}
@@ -94,11 +111,20 @@ public class Donor {
 	public void setRh(String rh) {
 		this.rh = rh;
 	}
-	public LocalDateTime getDob() {
+	public Date getDob() {
 		return dob;
 	}
-	public void setDob(LocalDateTime dob) {
+	public void setDob(Date dob) {
 		this.dob = dob;
 	}
+
+	@Override
+	public String toString() {
+		return "Donor [id=" + id + ", name=" + name + ", surname=" + surname + ", email=" + email + ", phone=" + phone
+				+ ", address=" + address + ", weight=" + weight + ", gender=" + gender + ", abo=" + abo + ", rh=" + rh
+				+ ", dob=" + dob + ", city=" + city + ", zip=" + zip + "]";
+	}
+	
+	
 
 }
