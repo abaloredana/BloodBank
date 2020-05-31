@@ -66,25 +66,25 @@ public class SQLiteBloodSampleManager implements BloodSampleManager {
 				sql = "SELECT * FROM bloodsample  WHERE bloodbank_id = ? AND donor_id = ALL (SELECT id FROM donor WHERE abo= “A” AND rh = “+”)";
 				break;
 			case 1:
-				sql = "SELECT * FROM bloodsample  WHERE bloodbank_id = ? AND donor_id = ALL (SELECT id FROM donor WHERE abo= “A” AND rh = “+”)";
+				sql = "SELECT * FROM bloodsample  WHERE bloodbank_id = ? AND donor_id = ALL (SELECT id FROM donor WHERE abo= “A” AND rh = “-”)";
 				break;
 			case 2:
-				sql = "SELECT * FROM bloodsample  WHERE bloodbank_id = ? AND donor_id = ALL (SELECT id FROM donor WHERE abo= “A” AND rh = “+”)";
+				sql = "SELECT * FROM bloodsample  WHERE bloodbank_id = ? AND donor_id = ALL (SELECT id FROM donor WHERE abo= “B” AND rh = “+”)";
 				break;
 			case 3:
-				sql = "SELECT * FROM bloodsample  WHERE bloodbank_id = ? AND donor_id = ALL (SELECT id FROM donor WHERE abo= “A” AND rh = “+”)";
+				sql = "SELECT * FROM bloodsample  WHERE bloodbank_id = ? AND donor_id = ALL (SELECT id FROM donor WHERE abo= “B” AND rh = “-”)";
 				break;
 			case 4:
-				sql = "SELECT * FROM bloodsample  WHERE bloodbank_id = ? AND donor_id = ALL (SELECT id FROM donor WHERE abo= “A” AND rh = “+”)";
+				sql = "SELECT * FROM bloodsample  WHERE bloodbank_id = ? AND donor_id = ALL (SELECT id FROM donor WHERE abo= “AB” AND rh = “+”)";
 				break;
 			case 5:
-				sql = "SELECT * FROM bloodsample  WHERE bloodbank_id = ? AND donor_id = ALL (SELECT id FROM donor WHERE abo= “A” AND rh = “+”)";
+				sql = "SELECT * FROM bloodsample  WHERE bloodbank_id = ? AND donor_id = ALL (SELECT id FROM donor WHERE abo= “AB” AND rh = “-”)";
 				break;
 			case 6:
-				sql = "SELECT * FROM bloodsample  WHERE bloodbank_id = ? AND donor_id = ALL (SELECT id FROM donor WHERE abo= “A” AND rh = “+”)";
+				sql = "SELECT * FROM bloodsample  WHERE bloodbank_id = ? AND donor_id = ALL (SELECT id FROM donor WHERE abo= “O” AND rh = “+”)";
 				break;
 			case 7:
-				sql = "SELECT * FROM bloodsample  WHERE bloodbank_id = ? AND donor_id = ALL (SELECT id FROM donor WHERE abo= “A” AND rh = “+”)";
+				sql = "SELECT * FROM bloodsample  WHERE bloodbank_id = ? AND donor_id = ALL (SELECT id FROM donor WHERE abo= “O” AND rh = “-”)";
 			}
 			PreparedStatement p = c.prepareStatement(sql);
 			p.setInt(1, bloodBankId);

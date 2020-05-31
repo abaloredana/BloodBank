@@ -6,18 +6,18 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Patient {
-	public int id;
-	public String name;
-	public String surname;
-	public String email;
-	public String phone;
-	public String address;
-	public float weight;
-	public String abo;
-	public String rh;
-	public String gender;
-	public Date dob;
-	public String doctor;
+	private int id;
+	private String name;
+	private String surname;
+	private String email;
+	private String phone;
+	private String address;
+	private float weight;
+	private String abo;
+	private String rh;
+	private String gender;
+	private Date dob;
+	private String doctor;
 	
 	
 	

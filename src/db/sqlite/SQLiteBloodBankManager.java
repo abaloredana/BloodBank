@@ -86,7 +86,7 @@ public class SQLiteBloodBankManager implements BloodBankManager {
 	@Override
 	public void deleteBloodBank(int id) {
 		try {
-			sql = "DELETE * FROM bloodbank WHERE id=?";
+			sql = "DELETE FROM bloodbank WHERE id=?";
 			p = c.prepareStatement(sql);
 			p.setInt(1, id);
 			p.executeUpdate();

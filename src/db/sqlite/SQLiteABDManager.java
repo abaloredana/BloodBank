@@ -32,8 +32,6 @@ public class SQLiteABDManager implements ADBManager {
 
 			this.c = DriverManager.getConnection("jdbc:sqlite:./LAST/bloodbank.db");
 			c.createStatement().execute("PRAGMA foreign_keys=ON");
-			System.out.println("Database connection opened.");
-
 			bloodBank = new SQLiteBloodBankManager(c);
 			bloodSample = new SQLiteBloodSampleManager(c);
 			donor = new SQLiteDonorManager(c);

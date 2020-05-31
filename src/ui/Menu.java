@@ -3,6 +3,7 @@ package ui;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.security.MessageDigest;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -10,11 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import db.interfaces.*;
+import db.jpa.JPAUserManager;
 import db.sqlite.*;
 import pojos.*;
+import pojos.user.Role;
+import pojos.user.User;
 
 public class Menu {
 	static BufferedReader reader;
+	static BufferedReader console;
 	static int option;
 
 	private static ADBManager dbManager;
@@ -25,10 +30,11 @@ public class Menu {
 	private static PatientManager PatientManager;
 	private static RequestManager RequestManager;
 	private static SpecialRequestManager SRequestManager;
+	private static UserManager userManager;
 
 	private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 
 		dbManager = new SQLiteABDManager();
 		dbManager.connect();
@@ -39,27 +45,38 @@ public class Menu {
 		PatientManager = dbManager.getPatient();
 		RequestManager = dbManager.getRequest();
 		SRequestManager = dbManager.getSprequest();
+	
+		dbManager.createTables();
+		
+		userManager = new JPAUserManager();
+		userManager.connect();
+		
 
 		reader = new BufferedReader(new InputStreamReader(System.in));
+		console = new BufferedReader(new InputStreamReader(System.in));
 
-		dbManager.createTables();
 
 		boolean op = true;
 		while (op) {
-			System.out.println("Are you a Blood Bank or a Hospital?");
-			System.out.println("1. BloodBank");
-			System.out.println("2. Hospital");
+			System.out.println("What do you want to do?");
+			System.out.println("1. Create new role");
+			System.out.println("2. Create new user");
+			System.out.println("3. Login");
 			System.out.println("0. Exit");
 			option = Integer.parseInt(reader.readLine());
 			switch (option) {
 			case 1:
-				bloodBankMenu();
+				newRole();
 				break;
 			case 2:
-				hospitalMenu();
+				newUser();
+				break;
+			case 3:
+				login();
 				break;
 			case 0:
 				dbManager.disconnect();
+				userManager.disconnect();
 				return;
 			default:
 				System.out.println("Invalid option");
@@ -68,6 +85,51 @@ public class Menu {
 				break;
 			}
 		}
+	}
+
+	public static void newRole() throws Exception {
+		System.out.println("Enter role info:");
+		System.out.print("Role name:");
+		String roleName = console.readLine();
+		Role role = new Role(roleName);
+		userManager.createRole(role);
+	}
+
+	public static void newUser() throws Exception {
+		System.out.println("Enter user info:");
+		System.out.print("Username:");
+		String username = console.readLine();
+		System.out.print("Password:");
+		String password = console.readLine();
+		MessageDigest md = MessageDigest.getInstance("MD5");
+		md.update(password.getBytes());
+		byte[] hash = md.digest();
+		List<Role> roles = userManager.getRoles();
+		for (Role role : roles) {
+			System.out.println(role);
+		}
+		System.out.println("Select role:");
+		int roleId = Integer.parseInt(console.readLine());
+		Role selectedRole = userManager.getRole(roleId);
+		User user = new User(username, hash, selectedRole);
+		userManager.createUser(user);
+	}
+
+	private static void login() throws Exception {
+		System.out.println("Enter your information:");
+		System.out.print("Username:");
+		String username = console.readLine();
+		System.out.print("Password:");
+		String password = console.readLine();
+		User user = userManager.checkPassword(username, password);
+		if (user == null) {
+			System.out.println("Error: user information mismatch.");
+		} else if (user.getRole().getRole().equalsIgnoreCase("Blood Bank")) {
+			bloodBankMenu();
+		} else if (user.getRole().getRole().equalsIgnoreCase("Hospital")) {
+			hospitalMenu();
+		} else
+			System.out.println("Invalid information: non-existing user");
 	}
 
 	private static void hospitalMenu() throws NumberFormatException, IOException {
